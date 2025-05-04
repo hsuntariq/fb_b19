@@ -174,6 +174,12 @@ body {
   transform: translateX(200%);
 }
 
+.nav-user-dropdown {
+  width: 400px;
+  top: 50px;
+  transition: all 1s;
+  transform: translateY(-200%);
+}
 /* Add story */
 .add-story-bg {
   transform: translateY(-100%);
@@ -191,6 +197,12 @@ body {
 .ads-sidebar .ads:hover {
   background-color: var(--bg-gray);
   transition: all 0.5s;
+  cursor: pointer;
+}
+
+.log-out:hover{
+  background-color: #dddbdb;
+  transition: all 0.8s;
   cursor: pointer;
 }
 

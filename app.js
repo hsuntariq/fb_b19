@@ -8,6 +8,7 @@ let login_overlay = document.querySelector(".login-overlay");
 let close = document.querySelector(".close-login");
 let close_btn = document.querySelector(".invalid");
 let invalid_popup = document.querySelector(".notification-popup");
+let post_succ_btn = document.querySelector('.post-succ-btn')
 
 
 cross.addEventListener("click", () => {
@@ -42,3 +43,7 @@ close_btn.addEventListener("click", () => {
   invalid_popup.style.transform = "translateX(150%)";
 });
 
+post_succ_btn.addEventListener("click", () => {
+  invalid_popup.style.transform = "translateX(150%)";
+
+})

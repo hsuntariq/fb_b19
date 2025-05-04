@@ -440,8 +440,41 @@
 
             <!-- user profile -->
 
-            <div class="rounded-circle">
-                <a href="" class="text-black"><img src="./imges/logo.png" alt="" width=" 40px" class="nav-logo"></i></a>
+            <div class="rounded-circle position-relative user-profile">
+                <div style="cursor: pointer;"> <img src="./imges/logo.png" alt="" width=" 40px" class="nav-logo"></div>
+
+                <!-- user profile DropDown -->
+
+                <div class="nav-user-dropdown p-3 border-1 shadow border-black bg-white position-absolute rounded " style="right: 0;">
+                    <div class="shadow-lg rounded-2 bg-secondary-subtle p-2 m-2">
+                        <div class="d-flex align-items-md-center gap-2 ">
+                            <img src="https://scontent.fisb17-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s120x120&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=5L0V52iBq3wQ7kNvwFxMGrs&_nc_oc=Adn2KAkdGrOw1X6hZsftI_G74h5I9PKj1wHeoMPtJ1MBClITRntOs0zXrqjaxKeDlFeR5m3kIFZqPbggLMfev7KF&_nc_zt=24&_nc_ht=scontent.fisb17-1.fna&oh=00_AfH72_R8U-VLFvbpl3ksBfhP9RieTYbfGT28GgCFc8jOtw&oe=6835B5FA"
+                                width="40px" height="40px" class="rounded-circle border border-secondary-subtle" alt="">
+
+                            <h5 class="text-capitalize fw-bold m-0">
+
+                                <?php
+                                echo $_SESSION["username"]
+                                ?>
+
+                            </h5>
+
+                        </div>
+
+                        <hr>
+
+                        <a href="#" class="btn btn-primary w-100 fw-bold"> See All Profile </a>
+                    </div>
+                    <ul class="list-unstyled mt-3">
+
+                    <!-- logout -->
+                        <div class="my-2 py-2  rounded-pill log-out">
+                            <i class="bi bi-door-open-fill fs-4 bg-gray rounded-circle " style="padding: 6px 6px;"></i>
+                            <a href="./logout.php" class="text-decoration-none text-black fw-semibold">Log out</a>
+                        </div>
+                    </ul>
+
+                </div>
             </div>
 
 

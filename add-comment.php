@@ -7,8 +7,14 @@ session_start();
 
 
     $insert = "INSERT INTO comment (comment,post_id,user_id) VALUES ('$comment',$post_id,$user_id)" or die();
-    mysqli_query($connection,$insert);
-    header("Location: {$_SERVER['HTTP_REFERER']}");
+    $result = mysqli_query($connection,$insert);
+    if($result){
+        echo 1;
+    }else{
+        echo 0;
+    }
+
+    // header("Location: {$_SERVER['HTTP_REFERER']}");
 
 
 

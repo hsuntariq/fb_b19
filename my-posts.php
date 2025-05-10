@@ -176,10 +176,14 @@
             <div class="col-3 d-flex justify-content-center gap-2 align-items-center">
                 <i class="bi bi-chat-dots fs-5"></i>
                 <!-- Button trigger modal -->
-                <span type="button" class="" data-bs-toggle="modal" data-bs-target="#p-<?php echo $item['post_id'] ?>">
-                    Comment
-                </span>
+                <div class="comment-trigger">
+                    <input type="hidden" class='post_id' value="<?php echo $item['post_id']?>">
+                    <span type="button" class="fetcher" data-bs-toggle="modal"
+                        data-bs-target="#p-<?php echo $item['post_id'] ?>">
+                        Comment
+                    </span>
 
+                </div>
                 <!-- Modal -->
                 <div class="modal fade " id="p-<?php echo $item['post_id'] ?>" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -201,7 +205,7 @@
                                 <div class="reaction-stats">
                                     <span>🙂 2.5K</span>
 
-                                    <span>434 comments • 29 shares</span>
+                                    <span class="comms"></span>
                                 </div>
                                 <div class="action-buttons">
                                     <button class="btn btn-light">Like</button>
@@ -209,38 +213,27 @@
                                     <button class="btn btn-light">Share</button>
                                 </div>
                                 <div class="comment-section">
+                                    <div class="my-all-comments" style="overflow-y:scroll;">
 
-                                    <div class="comment">
-                                        <img src="https://scontent.fisb17-1.fna.fbcdn.net/v/t51.75761-15/491442733_18071621125899043_2110218967234444301_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aaxnJjGYDP0Q7kNvwFZAFFl&_nc_oc=Adk5g2tqlNJbwCbSPT4hmVCWr4v9KwR5zCNK9VIqGFkYiABZwpAxuW9KaaRALg5rf2q4twbNCO6jNouUMyu8kSyR&_nc_zt=23&_nc_ht=scontent.fisb17-1.fna&_nc_gid=bMBAFKHn2xiABywPqOhVqA&oh=00_AfGvDauqxvcGPyVehldMiQKiZSiBwB_XHQHnyBWv9LbByg&oe=681D50A4"
-                                            alt="User Avatar">
-                                        <div>
-                                            <div class="comment-body">
-                                                <strong>Sharafat Shighi</strong>
-                                                <p>اللہ پاک جنت الفردوس میں اعلی مقام عطا فرمائیں</p>
-                                            </div>
-                                            <div class="comment-actions">
-                                                11h • <a href="#">Like</a> • <a href="#">Reply</a> • <a href="#">See
-                                                    translation</a>
-                                            </div>
-                                        </div>
                                     </div>
+
 
                                     <div class="comment-input">
                                         <img src="https://scontent.fisb17-1.fna.fbcdn.net/v/t51.75761-15/491442733_18071621125899043_2110218967234444301_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aaxnJjGYDP0Q7kNvwFZAFFl&_nc_oc=Adk5g2tqlNJbwCbSPT4hmVCWr4v9KwR5zCNK9VIqGFkYiABZwpAxuW9KaaRALg5rf2q4twbNCO6jNouUMyu8kSyR&_nc_zt=23&_nc_ht=scontent.fisb17-1.fna&_nc_gid=bMBAFKHn2xiABywPqOhVqA&oh=00_AfGvDauqxvcGPyVehldMiQKiZSiBwB_XHQHnyBWv9LbByg&oe=681D50A4"
                                             alt="User Avatar">
-                                        <form action="./add-comment.php" method="POST" class="w-100">
-                                            <input type="hidden" name="post_id" readonly
+                                        <form class="w-100">
+                                            <input class="post_id" type="hidden" name="post_id" readonly
                                                 value="<?php echo $item['post_id']?>">
                                             <div class="position-relative">
 
                                                 <textarea rows="1" type="text" name="comment"
-                                                    class="form-control position-relative rounded-pill w-100"
+                                                    class="form-control my-comment position-relative rounded-pill w-100"
                                                     placeholder="Comment as <?php echo $_SESSION['username']?>"></textarea>
-                                                <button class="btn  position-absolute"
+                                                <button type='button' class="btn add-comment-btn position-absolute"
                                                     style="top:50%;right:10px;transform:translateY(-50%);">
                                                     <i class="bi bi-send"></i>
+                                                </button>
                                             </div>
-                                            </button>
                                         </form>
                                     </div>
                                 </div>

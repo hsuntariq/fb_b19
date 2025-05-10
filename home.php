@@ -86,6 +86,98 @@ session_start();
         include './boot_js.php'
      ?>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+
+
+    <script>
+    $('.add-comment-btn').on('click', function() {
+        let post_id = $(this).closest('form').find('.post_id').val()
+        console.log(post_id)
+        $.ajax({
+            url: './get-comments.php',
+            type: 'GET',
+            data: {
+                post_id
+            },
+            success: function(response) {
+                $('.my-all-comments').css('height', '200px')
+                $('.my-all-comments').html(response)
+            }
+        })
+    })
+
+
+    $('.fetcher').on('click', function() {
+        let post_id = $(this).closest('.comment-trigger').find('.post_id').val()
+        $.ajax({
+            url: './get-comments.php',
+            type: 'GET',
+            data: {
+                post_id
+            },
+            success: function(response) {
+                $('.my-all-comments').css('height', '200px')
+                $('.my-all-comments').html(response)
+            }
+
+        })
+    })
+
+    $('.fetcher').on('click', function() {
+        let post_id = $(this).closest('.comment-trigger').find('.post_id').val()
+        fetchComments(post_id)
+    })
+
+
+    function fetchComments(post_id) {
+        $.ajax({
+            url: './get-count.php',
+            type: 'GET',
+            data: {
+                post_id
+            },
+            success: function(response) {
+                $('.comms').html(response)
+
+            }
+
+        })
+    }
+
+
+
+
+
+
+
+    $('.add-comment-btn').on('click', function() {
+
+        let post_id = $(this).closest('form').find('.post_id').val()
+        let my_comment = $(this).closest('form').find('.my-comment').val()
+        let comment = $(this).closest('form').find('.my-comment')
+        $.ajax({
+            url: './add-comment.php',
+            type: 'POST',
+            data: {
+                post_id,
+                comment: my_comment,
+            },
+            success: function(response) {
+                fetchComments(post_id)
+                comment.val('')
+            }
+        })
+
+
+    })
+    </script>
+
+
+
+
+
 
     <script>
     let nav_bar = document.querySelector(".nav-bar");
